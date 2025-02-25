@@ -61,7 +61,7 @@
             <input type="text" class="form-control" name="harga" id="exampleInputPassword1">
         </div>
         <div class="mb-3">
-            <label for="exampleInputEmail" class="form-label">id_jenis</label>
+            <label for="exampleInputEmail" class="form-label">ID jenis</label>
             <input type="text" class="form-control" name="id_jenis" id="exampleInputPassword1">
         </div>
         <button type="submit" class="btn btn-primary"></button>

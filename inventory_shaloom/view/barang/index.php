@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <script src="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body><div class="container">
@@ -34,8 +35,10 @@
                 <td><?php echo $result['harga']?></td>
                 <td><?php echo $result['id_jenis']?></td>
                 <td>
-                    <a href="">Edit |</a>
-                    <a href="">Hapus |</a>
+                    <a href="view_edit.php?id_barang=<?php echo $result['id_barang']?>
+                    "class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i> Edit </a>
+                    <a href="view_hapus.php?id_barang=<?php echo $result['id_barang']?>
+                    "class="btn btn-danger"><i class="fa-solid fa-delete-left"></i> Hapus </a>
                 </td>
             </tr>
             <?php

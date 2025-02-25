@@ -1,10 +1,10 @@
-!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="view_edit.php" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npmbootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
@@ -46,14 +46,22 @@
 </nav>
     <div class="container">
         <h1>Data jenis</h1>         <br>
-        <form action="proses_tambah.php" method="POST">
+        <?php
+          include '../../config/koneksi.php';
+          $id_jenis = $_GET['id_jenis'];
+          $query = mysqli_query($conn, "SELECT * FROM jenis WHERE id_jenis='$id_jenis'");
+          $result = mysqli_fetch_array($query);
+        ?>
+        <form action="proses_edit.php?id_jenis=<?php echo $result['id_jenis']?>" method="POST">
         <div class="mb-3">
             <label for="exampleInputEmail" class="form-label">ID jenis</label>
-            <input type="text" class="form-control" name="id_jenis" id="exampleInputEmail" aria-describedby="emailHelp">
+            <input type="text" class="form-control" name="id_jenis"
+             value="<?php echo $result['id_jenis']?>" id="exampleInputEmail" aria-describedby="emailHelp">
         </div>
         <div class="mb-3">
             <label for="exampleInputEmail" class="form-label">Nama jenis</label>
-            <input type="text" class="form-control" name="nama_jenis" id="exampleInputPassword1">
+            <input type="text" class="form-control" name="nama_jenis"
+            value="<?php echo $result['nama_jenis']?>" id="exampleInputPassword1">
         </div>
         <button type="submit" class="btn btn-primary"></button>
         </form>

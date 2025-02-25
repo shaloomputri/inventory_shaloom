@@ -8,11 +8,10 @@ include '../../config/koneksi.php';
 $query = mysqli_query($conn,
 "INSERT INTO barang VALUES('$id_barang','$nama_barang','$harga','$id_jenis')");
 
-echo "
-  <script>
-  alert('input data berhasil');
-  </script>
-  <script>
-  window.location.href = 'index.php';
-  </script>
-";
+if($query){
+  echo "<script>alert('Data Berhasil Ditambah')</script>";
+  echo "<script>window.location.href='index.php'</script>";
+}else{
+  echo "<script>alert('Data Gagal Ditambah')</script>";
+  echo "<script>window.location.href='view_tambah.php'</script>";
+}
